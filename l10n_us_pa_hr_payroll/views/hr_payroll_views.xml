@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+
         <record id="hr_contract_form_l10n_us_pa_inherit" model="ir.ui.view">
             <field name="name">hr.contract.form.inherit</field>
             <field name="model">hr.contract</field>
@@ -10,11 +10,11 @@
             <data>
                 <xpath expr="//group[@name='state_filing']" position="inside">
                     <group string="Pennsylvania" name="pa">
-                        <field name="pa_additional_withholding"/>
+                        <p>No additional fields.</p>
                     </group>
                 </xpath>
             </data>
             </field>
         </record>
-    </data>
+
 </odoo>

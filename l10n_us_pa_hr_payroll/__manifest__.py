@@ -9,9 +9,10 @@
 USA::Pennsylvania Payroll Rules.
 ================================
 
-* Partner for Pennsylvania Department of Revenue
-* Contribution register for Pennsylvania Department of Revenue - Unemployment Insurance
-* Contribution register Pennsylvania Department of Revenue - State Income Tax
+* Partners for Pennsylvania Department of Labor and Industry (PDLI) and
+* Pennsylvania Department of Treasury (PDOT)
+* Contribution register for Pennsylvania Department of Labor and Industry (PDLI) - Unemployment Tax
+* Contribution register for Pennsylvania Department of Treasury (PDOT) - State Income Tax
 * Contract level Pennsylvania Unemployment Rate
 * Company level Pennsylvania Unemployement Rate
     """,
