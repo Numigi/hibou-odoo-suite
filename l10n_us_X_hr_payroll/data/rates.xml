@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- THIS IS INDUSTRY SPECIFIC IN MINNESOTA -->
+        <record id="hr_payroll_rates_x_unemp" model="hr.payroll.rate">
+            <field name="name">US X Unemployment</field>
+            <field name="code">US_X_UNEMP</field>
+            <field name="rate">1.50</field>
+            <field name="date_from">2019-01-01</field>
+            <field name="wage_limit_year" eval="17500.00"/>
+        </record>
+
+    </data>
+</odoo>

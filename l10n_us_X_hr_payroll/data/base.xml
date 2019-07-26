@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- PARTNERS -->
+    <record id="res_partner_x_dor_unemp" model="res.partner">
+        <field name="name">X Department of Revenue (X DOR) - Unemployment Tax</field>
+        <field name="supplier">1</field>
+        <field eval="0" name="customer"/>
+    </record>
+    <record id="res_partner_x_dor_withhold" model="res.partner">
+        <field name="name">X Department of Revenue (X DOR) - Income Tax Withholding</field>
+        <field name="supplier">1</field>
+        <field eval="0" name="customer"/>
+    </record>
+
+    <!-- CONTRIBUTION REGISTERS -->
+\    <record id="contrib_register_x_dor_withhold" model="hr.contribution.register">
+        <field name="name">X Income Tax Withholding</field>
+        <field name="note">X Department of Revenue (X DOR) - Income Tax Withholding</field>
+        <field name="partner_id" ref="res_partner_x_dor_withhold"/>
+    </record>
+    <record id="contrib_register_x_dor_unemp" model="hr.contribution.register">
+        <field name="name">X Unemployment</field>
+        <field name="note">X Department of Revenue (x DOR) - Unemployment</field>
+        <field name="partner_id" ref="res_partner_x_dor_unemp"/>
+    </record>
+
+
+    <!-- HR SALARY RULE CATEGORIES-->
+    <record id="hr_payroll_x_unemp_wages" model="hr.salary.rule.category">
+        <field name="name">Wage: US-X Unemployment</field>
+        <field name="code">WAGE_US_X_UNEMP</field>
+    </record>
+
+    <record id="hr_payroll_x_unemp" model="hr.salary.rule.category">
+        <field name="name">ER: US-X Unemployment</field>
+        <field name="code">ER_US_X_UNEMP</field>
+        <field name="parent_id" ref="hr_payroll.COMP"/>
+    </record>
+
+    <record id="hr_payroll_x_income_withhold" model="hr.salary.rule.category">
+        <field name="name">EE: US-X Income Tax Withholding</field>
+        <field name="code">EE_US_X_INC_WITHHOLD</field>
+        <field name="parent_id" ref="hr_payroll.DED"/>
+    </record>
+
+</odoo>
