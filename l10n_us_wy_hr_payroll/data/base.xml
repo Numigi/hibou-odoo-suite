@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- PARTNER -->
+    <record id="res_partner_wy_dws_unemp" model="res.partner">
+        <field name="name">Wyoming Department of Workforce Services (WDWS) - Unemployment Tax</field>
+        <field name="supplier">1</field>
+        <field eval="0" name="customer"/>
+    </record>
+
+    <!-- CONTRIBUTION REGISTERS -->
+    <record id="contrib_register_wy_dws_unemp" model="hr.contribution.register">
+        <field name="name">Wyoming Unemployment</field>
+        <field name="note">Wyoming Department of Workforce Services (WDWS) - Unemployment</field>
+        <field name="partner_id" ref="res_partner_wy_dws_unemp"/>
+    </record>
+
+
+    <!-- HR SALARY RULE CATEGORIES-->
+    <record id="hr_payroll_wy_unemp_wages" model="hr.salary.rule.category">
+        <field name="name">Wage: US-WY Unemployment</field>
+        <field name="code">WAGE_US_WY_UNEMP</field>
+    </record>
+
+    <record id="hr_payroll_wy_unemp" model="hr.salary.rule.category">
+        <field name="name">ER: US-WY Unemployment</field>
+        <field name="code">ER_US_WY_UNEMP</field>
+        <field name="parent_id" ref="hr_payroll.COMP"/>
+    </record>
+
+</odoo>
