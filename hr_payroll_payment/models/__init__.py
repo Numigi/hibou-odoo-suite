@@ -4,3 +4,4 @@ from . import account_journal
 from . import hr_contract
 from . import hr_payslip
 from . import hr_payslip_patch
+from . import hr_payslip_run

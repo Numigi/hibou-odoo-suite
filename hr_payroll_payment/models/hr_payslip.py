@@ -4,6 +4,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare, float_is_zero
 
+
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
@@ -30,7 +31,7 @@ class HrPayslip(models.Model):
         method = self.move_id.journal_id.payroll_payment_method_id
         if amount > 0.0:
             method = self.move_id.journal_id.payroll_payment_method_refund_id
-        
+
         method_line = self.move_id.journal_id.payroll_payment_journal_id.outbound_payment_method_line_ids.filtered(
             lambda l: l.payment_method_id == method
         )

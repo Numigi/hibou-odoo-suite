@@ -38,11 +38,11 @@ Passes original Payroll Accounting tests and additional ones for gouping behavio
     """,
     'website': 'https://hibou.io/',
     'depends': [
-        # 'hr_payroll_account',
+        'payroll_account',
         'payroll',
     ],
     'data': [
-        'account_journal_views.xml',
+        'views/account_journal_views.xml',
         'views/hr_payslip_views.xml',
     ],
     'installable': True,

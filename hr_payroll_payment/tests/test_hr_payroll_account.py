@@ -2,7 +2,7 @@
 
 
 import odoo.tests
-from odoo.addons.hr_payroll_account.tests.test_hr_payroll_account import TestHrPayrollAccount as TestBase
+from odoo.addons.payroll_account.tests.test_payroll_account import TestPayrollAccount as TestBase
 
 
 @odoo.tests.tagged('post_install', '-at_install')
@@ -13,7 +13,7 @@ class TestHrPayrollAccount(TestBase):
         # upstream code no-longer sets the journal, though it does create it....
         self.hr_structure_softwaredeveloper.journal_id = self.account_journal
         # upstream code no-longer has any accounts (just makes journal entries without any lines)
-        demo_account = self.env.ref('hr_payroll_account.demo_account')
+        demo_account = self.env.ref('payroll_account.demo_account')
         self.hr_structure_softwaredeveloper.rule_ids.filtered(lambda r: r.code == 'HRA').account_debit = demo_account
         # Need a default account as there will be adjustment lines equal and opposite to the above PT rule...
         self.account_journal.default_account_id = demo_account

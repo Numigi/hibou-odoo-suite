@@ -4,7 +4,7 @@
     <record id="payslip_filter_payment" model="ir.ui.view">
         <field name="name">hr.payslip.select.payment</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter"/>
+        <field name="inherit_id" ref="payroll.hr_payslip_view_search"/>
         <field name="arch" type="xml">
              <xpath expr="//filter[last()]" position="after">
                  <filter name="filter_needs_payment" string="Needs Payment" domain="[('is_paid', '=', False)]"
@@ -16,7 +16,7 @@
     <record id="payslip_run_filter_payment" model="ir.ui.view">
         <field name="name">hr.payslip.run.select.payment</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_filter"/>
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_search"/>
         <field name="arch" type="xml">
              <xpath expr="//filter[last()]" position="after">
                  <filter name="filter_needs_payment" string="Needs Payment" domain="[('is_paid', '=', False)]"
@@ -29,7 +29,7 @@
     <record id="hr_payslip_form_payment" model="ir.ui.view">
         <field name="name">hr.payslip.form.payment</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="inherit_id" ref="payroll.hr_payslip_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='refund_sheet']" position="before">
                 <button name="action_register_payment" type="object" string="Register Payment" class="oe_highlight"
@@ -45,9 +45,9 @@
     <record id="hr_payslip_run_form_payment" model="ir.ui.view">
         <field name="name">hr.payslip.run.form.payment</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='action_validate']" position="after">
+            <xpath expr="//button[@name='close_payslip_run']" position="after">
                 <button name="action_register_payment" type="object" string="Register Payment" class="oe_highlight"
                         attrs="{'invisible': ['|', ('state', '!=', 'close'), ('is_paid', '=', True)]}"
                         groups="account.group_account_user"/>
@@ -64,7 +64,7 @@
     <record id="hr_contract_view_form_inherit" model="ir.ui.view">
         <field name="name">hr.contract.view.form.inherit</field>
         <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_payroll_account.hr_contract_view_form"/>
+        <field name="inherit_id" ref="payroll_account.hr_contract_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='analytic_account_id']" position="after">
                 <field name="payroll_fiscal_position_id"/>
