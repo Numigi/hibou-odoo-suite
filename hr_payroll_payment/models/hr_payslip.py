@@ -5,6 +5,21 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare, float_is_zero
 
 
+class HrSalaryRule(models.Model):
+    _inherit = 'hr.salary.rule'
+
+    not_computed_in_net = fields.Boolean(
+        string="Not computed in net accountably", default=False,
+        help='This field allows you to delete the value of this rule in the "Net Salary" rule at the accounting level to explicitly display the value of this rule in the accounting. For example, if you want to display the value of your representation fees, you can check this field.')
+
+
+class HrPayslipStructure(models.Model):
+    _inherit = 'hr.payroll.structure'
+
+    journal_id = fields.Many2one('account.journal', string='Payroll Journal',
+        help="The journal used to create the accounting entries for this payroll structure.")
+
+
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
@@ -185,7 +200,7 @@ class HrPayslip(models.Model):
             debit_account_id = account_map[debit_account].id if debit_account else False
             credit_account = line.salary_rule_id.account_credit
             credit_account_id = account_map[credit_account].id if credit_account else False
-            partner_id = line.salary_rule_id.partner_id.id or employee_partner_id
+            partner_id = employee_partner_id
 
             if debit_account_id:  # If the rule has a debit account.
                 debit = amount if amount > 0.0 else 0.0
@@ -331,6 +346,7 @@ class HrPayslip(models.Model):
             slip.write({'move_id': move.id, 'date': date})
 
     def _generate_move_slip(self, slip_mapped_data, journal, slip_date, account_map):
+        print(">>>>>>>>>>>>> _generate_move_slip is called")
         slip_mapped_data[journal][slip_date]._check_slips_employee_home_address()
 
         precision = self.env['decimal.precision'].precision_get('Payroll')
