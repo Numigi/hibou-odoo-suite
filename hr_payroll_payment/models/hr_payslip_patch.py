@@ -7,4 +7,4 @@ from odoo.addons.payroll_account.models.hr_payslip import HrPayslip
 def action_payslip_done(self):
     return super(HrPayslip, self).action_payslip_done()
 
-HrPayslip.action_payslip_done = action_payslip_done
+# HrPayslip.action_payslip_done = action_payslip_done
