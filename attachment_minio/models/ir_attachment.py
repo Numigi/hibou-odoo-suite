@@ -5,7 +5,11 @@
 import io
 import logging
 from minio import Minio
-from minio.error import NoSuchKey
+try:
+    from minio.error import NoSuchKey
+except ImportError:
+    # Fallback pour les versions récentes (>7.2.0)
+    from minio.error import S3Error as NoSuchKey
 
 from odoo import api, exceptions, models, tools
 from ..s3uri import S3Uri
